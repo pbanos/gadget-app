@@ -9,4 +9,11 @@ class GadgetImagesController < ApplicationController
 		redirect_to edit_gadget_path(@gadget)
 	end
 
+	def destroy
+		@gadget = current_user.gadgets.find(params[:gadget_id])
+		@gadget_image = @gadget.gadget_images.find(params[:id])
+		@gadget_image.destroy
+		redirect_to edit_gadget_path(@gadget)
+	end
+
 end

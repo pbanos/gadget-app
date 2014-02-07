@@ -14,9 +14,12 @@
 
 <div>
 	<% @gadget.gadget_images.each do |gadget_image| %>
-		<%= image_tag gadget_image.attachment.url(:medium) %>
+		<div>
+			<%= image_tag gadget_image.attachment.url(:medium) %>
+			<%= link_to 'Destroy', gadget_gadget_image_path(@gadget, gadget_image), method: :delete %>
+		</div>
 	<% end %>
-	<%= form_for [@gadget, @gadget.gadget_images.new], :html => { :multipart => true } do |form| %>
+	<%= form_for [@gadget, @gadget.gadget_images.new], html: { multipart: true } do |form| %>
 		<%= form.file_field :attachment %>
 		<%= form.submit "Send file" %>
 	<% end %>

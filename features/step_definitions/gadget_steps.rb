@@ -95,10 +95,17 @@ When(/^I upload the file "(.*?)"$/) do |image_filename|
   click_button "Send file"
 end
 
-When(/^I follow the "(.*?)" link for image "(.*?)"$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+When(/^I follow the "(.*?)" link for image "(.*?)"$/) do |link, image_filename|
+  within :xpath, "//div[./img[contains(./@src, '#{image_filename}')] and .//a[text()='#{link}']]" do
+    click_link(link)
+  end
 end
 
-Then(/^I should not see image "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should not see image "(.*?)"$/) do |image_filename|
+  page_images = page.all(:xpath, "//img").map do |image_tag|
+    image_tag['src']
+  end.map do |image_source|
+    image_source.split('?').first.split('/').last
+  end
+  page_images.should_not include(image_filename)
 end
