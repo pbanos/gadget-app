@@ -158,4 +158,24 @@ describe Gadget do
 			end
 		end
 	end
+
+	describe '#destroy' do
+		let(:gadget){create(:gadget)}
+		let(:gadget_images) do
+			3.times.map do |i|
+				create(:gadget_image, gadget: gadget)
+			end
+		end
+		
+		before(:each) do
+			gadget_images
+		end
+
+		it "destroys every one of its images" do
+			gadget.destroy
+			gadget_images.each do |gadget_image|
+				expect(GadgetImage.where(id: gadget_image.id)).to be_empty
+			end
+		end
+	end
 end
