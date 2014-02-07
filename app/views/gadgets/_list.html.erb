@@ -1,6 +1,3 @@
-<h1>Welcome, <%= current_user.username%></h1>
-
-<h2>Gadgets</h2>
 <table>
 	<thead>
 		<tr>
@@ -16,11 +13,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<%- current_user.gadgets.each do |gadget| -%>
+		<%- gadgets.each do |gadget| -%>
 			<tr>
 				<td><%= gadget.name %></td>
 			</tr>
 		<%- end -%>
 	</tbody> 
 </table>
-

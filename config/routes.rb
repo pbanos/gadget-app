@@ -54,11 +54,11 @@ GadgetApp::Application.routes.draw do
   #     resources :products
   #   end
 
-  resources :gadgets, :except => [:index, :show] do
+  resources :gadgets, :except => [:show] do
     collection do
       get :search
     end
   end
-  root :to => "home#index"
+  root :to => "gadgets#index"
   devise_for :users
 end
