@@ -13,7 +13,7 @@ describe User do
 		let(:username){'pbanos'}
 		let(:password){'Secret.123'}
 		let(:password_confirmation){password}
-		let(:existing_user){Factory.create(:user)}
+		let(:existing_user){create(:user)}
 		context "for a non-persisted user" do
 			context "with a password confirmation" do
 				let(:given_attributes){valid_attributes}
