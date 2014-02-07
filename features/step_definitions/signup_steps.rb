@@ -5,7 +5,7 @@ Given(/^no '([^']+)' user exists$/) do |username|
 end
 
 Given(/^I am not currently logged in$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/users/sign_out'
 end
 
 When(/^I go to the signup page$/) do

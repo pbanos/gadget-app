@@ -1,4 +1,5 @@
 GadgetApp::Application.routes.draw do
+  get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +54,7 @@ GadgetApp::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root :to => "home#index"
+  devise_for :users
 end
