@@ -27,7 +27,7 @@ And I fill in 'Password confirmation' with "Secret.123"
 And I press "Sign up"
 Then there should be a 'pbanos' user 
 But I should be at the signup page
-And I should see "Username taken"
+And I should see "Username has already been taken"
 
 Scenario: Password does not match confirmation
 Given no 'pbanos' user exists
@@ -40,4 +40,4 @@ And I fill in 'Password confirmation' with "Secret.1234"
 And I press "Sign up"
 Then there should be no 'pbanos' user 
 And I should be at the signup page
-And I should see "Password doesn't match confirmation"
+And I should see "Password confirmation doesn't match Password"
