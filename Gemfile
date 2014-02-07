@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 1.2'
 #Authentication magic
 gem 'devise'
 
+#Image upload and processing
+gem "paperclip", "~> 3.0"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

@@ -6,7 +6,7 @@ describe GadgetImage do
 		let(:valid_attributes) do
 			{
 				gadget: gadget,
-				attachment: File.new('/spec/images/image-1.jpg')
+				attachment: File.new('spec/images/image-1.jpg')
 			}
 		end
 		it "returns true given valid attributes" do
@@ -19,7 +19,7 @@ describe GadgetImage do
 			expect(GadgetImage.new(valid_attributes.except(:attachment))).not_to be_valid
 		end
 		it "returns false without an image-typed attachment" do
-			expect(GadgetImage.new(valid_attributes.with(attachment: File.new('/spec/images/non-image.txt')))).not_to be_valid
+			expect(GadgetImage.new(valid_attributes.with(attachment: File.new('spec/images/non-image.txt')))).not_to be_valid
 		end
 	end
 end
