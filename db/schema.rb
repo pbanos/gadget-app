@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207104454) do
+ActiveRecord::Schema.define(version: 20140207123058) do
+
+  create_table "gadgets", force: true do |t|
+    t.string  "name"
+    t.integer "user_id"
+  end
+
+  add_index "gadgets", ["user_id"], name: "index_gadgets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string "username"

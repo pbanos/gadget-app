@@ -26,10 +26,10 @@ describe Gadget do
 			expect(Gadget.new(valid_attributes.with(name: ''))).not_to be_valid
 		end
 		it "returns false with the name of a gadget belonging to the user" do
-			expect(Gadget.new(valid_attributes.except(name: user_gadget.name))).not_to be_valid
+			expect(Gadget.new(valid_attributes.with(name: user_gadget.name))).not_to be_valid
 		end
 		it "returns true with the name of a gadget belonging to another user" do
-			expect(Gadget.new(valid_attributes.except(name: another_user_gadget.name))).to be_valid
+			expect(Gadget.new(valid_attributes.with(name: another_user_gadget.name))).to be_valid
 		end
 	end
 end
