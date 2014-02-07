@@ -192,9 +192,9 @@ And the user "pbanos" has as gadgets
 	| g3	|
 And the gadget "g2" belonging to "pbanos" has the following images
 	| Image 	  |
-	| image-1.png |
-	| image-2.png |
-	| image-3.png |
+	| image-1.jpg |
+	| image-2.jpg |
+	| image-3.jpg |
 And the user "other" has as gadgets
 	| Name 	|
 	| g4	|
@@ -205,9 +205,9 @@ And I follow "Edit" on the gadget "g2" row
 Then I should see "Edit Gadget"
 And I should see the following images
 	| Image 	  |
-	| image-1.png |
-	| image-2.png |
-	| image-3.png |
+	| image-1.jpg |
+	| image-2.jpg |
+	| image-3.jpg |
 
 
 Scenario: Add image to gadget
@@ -219,9 +219,9 @@ And the user "pbanos" has as gadgets
 	| g3	|
 And the gadget "g2" belonging to "pbanos" has the following images
 	| Image 	  |
-	| image-1.png |
-	| image-2.png |
-	| image-3.png |
+	| image-1.jpg |
+	| image-2.jpg |
+	| image-3.jpg |
 And the user "other" has as gadgets
 	| Name 	|
 	| g4	|
@@ -232,18 +232,18 @@ And I follow "Edit" on the gadget "g2" row
 Then I should see "Edit Gadget"
 And I should see the following images
 	| Image 	  |
-	| image-1.png |
-	| image-2.png |
-	| image-3.png |
-When I upload the file "image-4.png"
+	| image-1.jpg |
+	| image-2.jpg |
+	| image-3.jpg |
+When I upload the file "image-4.jpg"
 Then I should see "Edit Gadget"
 Then the field "Name" should contain "g2"
 And I should see the following images
 	| Image 	  |
-	| image-1.png |
-	| image-2.png |
-	| image-3.png |
-	| image-4.png |
+	| image-1.jpg |
+	| image-2.jpg |
+	| image-3.jpg |
+	| image-4.jpg |
 
 Scenario: Destroy gadget image
 Given I am authenticated as 'pbanos'
@@ -254,9 +254,9 @@ And the user "pbanos" has as gadgets
 	| g3	|
 And the gadget "g2" belonging to "pbanos" has the following images
 	| Image 	  |
-	| image-1.png |
-	| image-2.png |
-	| image-3.png |
+	| image-1.jpg |
+	| image-2.jpg |
+	| image-3.jpg |
 And the user "other" has as gadgets
 	| Name 	|
 	| g4	|
@@ -265,14 +265,14 @@ And the user "other" has as gadgets
 When I go to the user page
 And I follow "Edit" on the gadget "g2" row
 Then I should see "Edit Gadget"
-When I follow the "Destroy" link for image "image-2.png"
+When I follow the "Destroy" link for image "image-2.jpg"
 Then I should see "Edit Gadget"
 Then the field "Name" should contain "g2"
 And I should see the following images
 	| Image 	  |
-	| image-1.png |
-	| image-3.png |
-And I should not see image "image-2.png"
+	| image-1.jpg |
+	| image-3.jpg |
+And I should not see image "image-2.jpg"
 
 Scenario: Destroy gadget without images
 Given I am authenticated as 'pbanos'
@@ -307,9 +307,9 @@ And the user "pbanos" has as gadgets
 	| g3	|
 And the gadget "g2" belonging to "pbanos" has the following images
 	| Image 	  |
-	| image-1.png |
-	| image-2.png |
-	| image-3.png |
+	| image-1.jpg |
+	| image-2.jpg |
+	| image-3.jpg |
 And the user "other" has as gadgets
 	| Name 	|
 	| g4	|

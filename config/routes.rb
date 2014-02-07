@@ -58,6 +58,7 @@ GadgetApp::Application.routes.draw do
     collection do
       get :search
     end
+    resources :gadget_images, :only => [:create, :destroy]
   end
   root :to => "gadgets#index"
   devise_for :users

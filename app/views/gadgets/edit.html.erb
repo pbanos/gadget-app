@@ -11,3 +11,13 @@
 
   <div><%= f.submit "Update" %></div>
 <% end %>
+
+<div>
+	<% @gadget.gadget_images.each do |gadget_image| %>
+		<%= image_tag gadget_image.attachment.url(:medium) %>
+	<% end %>
+	<%= form_for [@gadget, @gadget.gadget_images.new], :html => { :multipart => true } do |form| %>
+		<%= form.file_field :attachment %>
+		<%= form.submit "Send file" %>
+	<% end %>
+</div>

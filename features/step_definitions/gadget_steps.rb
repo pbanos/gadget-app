@@ -72,3 +72,33 @@ end
 Then(/^I should be on the root page$/) do
   URI.parse(current_url).path.should == '/'
 end
+
+Given(/^the gadget "(.*?)" belonging to "(.*?)" has the following images$/) do |gadget_name, username, table|
+  user = User.find_by username: username
+  gadget = user.gadgets.find_by name: gadget_name
+  table.rows.flatten.map do |image_filename|
+    gadget.gadget_images.create(attachment: File.new(File.join('features/images', image_filename)))
+  end
+end
+
+Then(/^I should see the following images$/) do |table|
+  page_images = page.all(:xpath, "//img").map do |image_tag|
+    image_tag['src']
+  end.map do |image_source|
+    image_source.split('?').first.split('/').last
+  end
+  (table.rows.flatten - page_images).should be_empty
+end
+
+When(/^I upload the file "(.*?)"$/) do |image_filename|
+  attach_file(:gadget_image_attachment, File.join('features/images', image_filename))
+  click_button "Send file"
+end
+
+When(/^I follow the "(.*?)" link for image "(.*?)"$/) do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should not see image "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
