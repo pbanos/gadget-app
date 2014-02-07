@@ -28,8 +28,9 @@ Then(/^I should see the gadgets$/) do |table|
 end
 
 Then(/^I should not see the gadgets$/) do |table|
+  listed_gadget_names = page.all(:xpath, '//table/tbody/tr/td[1]').map(&:text)
   table.rows.flatten.each do |gadget_name|
-  	page.should_not have_content(gadget_name)
+  	listed_gadget_names.should_not include(gadget_name)
   end
 end
 
@@ -54,7 +55,8 @@ When(/^I fill in "(.*?)" in the search box$/) do |query|
 end
 
 Then(/^I should see no gadgets$/) do
-  pending # express the regexp above with the code you wish you had
+  listed_gadget_names = page.all(:xpath, '//table/tbody/tr/td[1]').map(&:text)
+  listed_gadget_names.should be_empty
 end
 
 When(/^I follow "(.*?)" on the gadget "(.*?)" row$/) do |link, gadget_name|
