@@ -14,4 +14,8 @@ class GadgetsController < ApplicationController
 		render :new
 	end
   end
+
+  def search
+  	@gadgets = Gadget.search(current_user, params[:q])
+  end
 end

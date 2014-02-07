@@ -50,7 +50,7 @@ Then(/^the user "(.*?)" should have (\d+) gadgets$/) do |username, gadgets_numbe
 end
 
 When(/^I fill in "(.*?)" in the search box$/) do |query|
-  pending # express the regexp above with the code you wish you had
+  step("I fill in 'Search for:' with \"#{query}\"")
 end
 
 Then(/^I should see no gadgets$/) do

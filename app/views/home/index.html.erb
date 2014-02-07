@@ -6,6 +6,13 @@
 		<tr>
 			<th>Name</th>
 			<th><%= link_to "Create Gadget", new_gadget_path%></th>
+			<th>
+				<%= form_tag(search_gadgets_path, method: :get) do %>
+					<%= label_tag(:q, "Search for:") %>
+					<%= text_field_tag(:q) %>
+					<%= submit_tag('Search')%>
+				<% end %>
+			</th>
 		</tr>
 	</thead>
 	<tbody>
