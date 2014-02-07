@@ -76,7 +76,7 @@ Then I should see "New Gadget"
 When I fill in 'Name' with "g3"
 And I press "Create gadget"
 Then I should see "New Gadget"
-And I should see "Name has been already taken"
+And I should see "Name has already been taken"
 And the user "pbanos" should have 3 gadgets 
 
 Scenario: Successful gadget search

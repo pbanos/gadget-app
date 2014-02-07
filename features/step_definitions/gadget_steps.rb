@@ -34,20 +34,22 @@ Then(/^I should not see the gadgets$/) do |table|
 end
 
 
-When(/^I follow "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I follow "(.*?)"$/) do |link|
+  click_link(link)
 end
 
-Then(/^the user "(.*?)" should have the following gadgets$/) do |arg1, table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+Then(/^the user "(.*?)" should have the following gadgets$/) do |username, table|
+  user = User.find_by username: username
+  (table.rows.flatten - user.gadgets.map(&:name)).should be_empty
+  (user.gadgets.map(&:name) - table.rows.flatten).should be_empty
 end
 
-Then(/^the user "(.*?)" should have (\d+) gadgets$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Then(/^the user "(.*?)" should have (\d+) gadgets$/) do |username, gadgets_number|
+  user = User.find_by username: username
+  user.gadgets.count.should == gadgets_number.to_i
 end
 
-When(/^I fill in "(.*?)" in the search box$/) do |arg1|
+When(/^I fill in "(.*?)" in the search box$/) do |query|
   pending # express the regexp above with the code you wish you had
 end
 
@@ -55,11 +57,11 @@ Then(/^I should see no gadgets$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-When(/^I follow "(.*?)" on the gadget "(.*?)" row$/) do |arg1, arg2|
+When(/^I follow "(.*?)" on the gadget "(.*?)" row$/) do |link, gadget_name|
   pending # express the regexp above with the code you wish you had
 end
 
-Then(/^the field "(.*?)" should contain "(.*?)"$/) do |arg1, arg2|
+Then(/^the field "(.*?)" should contain "(.*?)"$/) do |field, content|
   pending # express the regexp above with the code you wish you had
 end
 
