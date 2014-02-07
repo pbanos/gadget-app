@@ -25,15 +25,21 @@ class GadgetsController < ApplicationController
 	end
 
 	def edit
-		@gadget = Gadget.find(params[:id])
+		@gadget = current_user.gadgets.find(params[:id])
 	end
 
 	def update
-		@gadget = Gadget.find(params[:id])
+		@gadget = current_user.gadgets.find(params[:id])
 		if @gadget.update_attributes(name: params[:gadget][:name])
 			redirect_to root_path
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		@gadget = current_user.gadgets.find(params[:id])
+		@gadget.destroy
+		redirect_to root_path
 	end
 end

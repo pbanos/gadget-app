@@ -17,6 +17,7 @@
 			<tr>
 				<td><%= gadget.name %></td>
 				<td><%= link_to "Edit", edit_gadget_path(gadget)%></td>
+				<td><%= link_to "Destroy", gadget_path(gadget), method: :delete%></td>
 			</tr>
 		<%- end -%>
 	</tbody> 
