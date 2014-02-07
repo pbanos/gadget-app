@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'cucumber-rails', '~> 1.4.0', group: :test, require: false
+gem 'rspec-rails', '~> 2.14.1', group: [:development, :test]
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
