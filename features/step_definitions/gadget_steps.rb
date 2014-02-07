@@ -60,7 +60,7 @@ Then(/^I should see no gadgets$/) do
 end
 
 When(/^I follow "(.*?)" on the gadget "(.*?)" row$/) do |link, gadget_name|
-  within :xpath, "/html/body/table/tbody/tr[.//text()='#{gadget_name}' and .//a[text()='#{link}']]" do
+  within :xpath, "/html/body/div/table/tbody/tr[.//text()='#{gadget_name}' and .//a[text()='#{link}']]" do
     click_link(link)
   end
 end

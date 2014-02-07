@@ -39,7 +39,7 @@ Given(/^a '([^']+)' user exists$/) do |username|
 end
 
 Then(/^I should be at the signup page$/) do
-  step 'I should see "Sign up"'
+   %w(/users /users/sign_up).should include(URI.parse(current_url).path)
 end
 
 Then(/^there should be no '([^']+)' user$/) do |username|
