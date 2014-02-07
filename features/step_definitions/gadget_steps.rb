@@ -32,3 +32,37 @@ Then(/^I should not see the gadgets$/) do |table|
   	page.should_not have_content(gadget_name)
   end
 end
+
+
+When(/^I follow "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the user "(.*?)" should have the following gadgets$/) do |arg1, table|
+  # table is a Cucumber::Ast::Table
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the user "(.*?)" should have (\d+) gadgets$/) do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I fill in "(.*?)" in the search box$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see no gadgets$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I follow "(.*?)" on the gadget "(.*?)" row$/) do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the field "(.*?)" should contain "(.*?)"$/) do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should be on the user page$/) do
+  pending # express the regexp above with the code you wish you had
+end
