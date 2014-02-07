@@ -183,17 +183,153 @@ Then I should see the gadgets
 	| g2	|
 	| g3	|
 
+Scenario: See the images of a gadget
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the gadget "g2" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-1.png |
+	| image-2.png |
+	| image-3.png |
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+When I go to the user page
+And I follow "Edit" on the gadget "g2" row
+Then I should see "Edit Gadget"
+And I should see the following images
+	| Image 	  |
+	| image-1.png |
+	| image-2.png |
+	| image-3.png |
+
+
 Scenario: Add image to gadget
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the gadget "g2" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-1.png |
+	| image-2.png |
+	| image-3.png |
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+When I go to the user page
+And I follow "Edit" on the gadget "g2" row
+Then I should see "Edit Gadget"
+And I should see the following images
+	| Image 	  |
+	| image-1.png |
+	| image-2.png |
+	| image-3.png |
+When I upload the file "image-4.png"
+Then I should see "Edit Gadget"
+Then the field "Name" should contain "g2"
+And I should see the following images
+	| Image 	  |
+	| image-1.png |
+	| image-2.png |
+	| image-3.png |
+	| image-4.png |
 
 Scenario: Destroy gadget image
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the gadget "g2" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-1.png |
+	| image-2.png |
+	| image-3.png |
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+When I go to the user page
+And I follow "Edit" on the gadget "g2" row
+Then I should see "Edit Gadget"
+When I follow the "Destroy" link for image "image-2.png"
+Then I should see "Edit Gadget"
+Then the field "Name" should contain "g2"
+And I should see the following images
+	| Image 	  |
+	| image-1.png |
+	| image-3.png |
+And I should not see image "image-2.png"
 
 Scenario: Destroy gadget without images
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+When I go to the user page
+And I follow "Destroy" on the gadget "g1" row
+Then the user "pbanos" should have the following gadgets
+	| Name 	|
+	| g2	|
+	| g3	| 
+And I should be at the user page
+And I should see the gadgets
+	| Name 	|
+	| g2	|
+	| g3	|
 
 Scenario: Destroy gadget with images
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the gadget "g2" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-1.png |
+	| image-2.png |
+	| image-3.png |
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+When I go to the user page
+And I follow "Destroy" on the gadget "g1" row
+Then the user "pbanos" should have the following gadgets
+	| Name 	|
+	| g2	|
+	| g3	| 
+And I should be at the user page
+And I should see the gadgets
+	| Name 	|
+	| g2	|
+	| g3	|
 
-Scenario: Show gadgets in small size cover flow
+Scenario: Show gadgets in thumbnail size cover flow
 
 Scenario: Show gadgets in medium size cover flow
 
-Scenario: Show gadgets in large size cover flow
+Scenario: Show gadgets in original size cover flow
 
