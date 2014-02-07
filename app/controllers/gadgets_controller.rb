@@ -23,4 +23,17 @@ class GadgetsController < ApplicationController
 		@query = params[:q]
 		@gadgets = Gadget.search(current_user, @query)
 	end
+
+	def edit
+		@gadget = Gadget.find(params[:id])
+	end
+
+	def update
+		@gadget = Gadget.find(params[:id])
+		if @gadget.update_attributes(name: params[:gadget][:name])
+			redirect_to root_path
+		else
+			render :edit
+		end
+	end
 end

@@ -16,6 +16,7 @@
 		<%- gadgets.each do |gadget| -%>
 			<tr>
 				<td><%= gadget.name %></td>
+				<td><%= link_to "Edit", edit_gadget_path(gadget)%></td>
 			</tr>
 		<%- end -%>
 	</tbody> 

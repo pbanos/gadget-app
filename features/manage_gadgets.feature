@@ -136,7 +136,7 @@ And the user "other" has as gadgets
 	| g6	|
 When I go to the user page
 And I follow "Edit" on the gadget "g2" row
-Then I should see "Gadget g2"
+Then I should see "Edit Gadget"
 Then the field "Name" should contain "g2"
 When I fill in 'Name' with "g7"
 And I press "Update"
@@ -145,7 +145,7 @@ Then the user "pbanos" should have the following gadgets
 	| g1	|
 	| g7	|
 	| g3	|
-And I should be on the user page
+And I should be on the root page
 And I should see the gadgets
 	| Name 	|
 	| g1	|
@@ -166,7 +166,7 @@ And the user "other" has as gadgets
 	| g6	|
 When I go to the user page
 And I follow "Edit" on the gadget "g2" row
-Then I should see "Gadget g2"
+Then I should see "Edit Gadget"
 Then the field "Name" should contain "g2"
 When I fill in 'Name' with "g3"
 And I press "Update"
@@ -175,7 +175,7 @@ Then the user "pbanos" should have the following gadgets
 	| g1	|
 	| g2	|
 	| g3	|
-And I should see "Gadget g2"
+And I should see "Edit Gadget"
 When I go to the user page
 Then I should see the gadgets
 	| Name 	|

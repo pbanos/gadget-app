@@ -60,13 +60,15 @@ Then(/^I should see no gadgets$/) do
 end
 
 When(/^I follow "(.*?)" on the gadget "(.*?)" row$/) do |link, gadget_name|
-  pending # express the regexp above with the code you wish you had
+  within :xpath, "/html/body/table/tbody/tr[.//text()='#{gadget_name}' and .//a[text()='#{link}']]" do
+    click_link(link)
+  end
 end
 
 Then(/^the field "(.*?)" should contain "(.*?)"$/) do |field, content|
-  pending # express the regexp above with the code you wish you had
+  field_labeled(field).value.should == content
 end
 
-Then(/^I should be on the user page$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should be on the root page$/) do
+  URI.parse(current_url).path.should == '/'
 end

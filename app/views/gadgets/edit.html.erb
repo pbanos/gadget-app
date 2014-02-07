@@ -1,0 +1,13 @@
+<h1>Edit Gadget</h1>
+
+<%= form_for(@gadget) do |f|%>
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %> <br />
+  <ul>
+  <% @gadget.errors.full_messages.each do |msg| %>
+  	<li><%= msg %></li>
+  <% end %>	
+  </ul></div>
+
+  <div><%= f.submit "Update" %></div>
+<% end %>
