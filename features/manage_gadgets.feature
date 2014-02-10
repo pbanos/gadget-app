@@ -328,8 +328,101 @@ And I should see the gadgets
 	| g3	|
 
 Scenario: Show gadgets in thumbnail size cover flow
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the gadget "g1" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-1.jpg |
+And the gadget "g2" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-2.jpg |
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+And the gadget "g4" belonging to "other" has the following images
+	| Image 	  |
+	| image-3.jpg |
+And the gadget "g5" belonging to "other" has the following images
+	| Image 	  |
+	| image-3.jpg |
+When I go to the user page
+And I follow "Small cover flow"
+Then I should see the following images
+	| Image 	  |
+	| image-1.jpg |
+	| image-2.jpg |
+And I should not see image "image-3.jpg"
+And all the images should be thumbnail-sized
 
 Scenario: Show gadgets in medium size cover flow
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the gadget "g1" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-1.jpg |
+And the gadget "g2" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-2.jpg |
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+And the gadget "g4" belonging to "other" has the following images
+	| Image 	  |
+	| image-3.jpg |
+And the gadget "g5" belonging to "other" has the following images
+	| Image 	  |
+	| image-3.jpg |
+When I go to the user page
+And I follow "Small cover flow"
+Then I should see the following images
+	| Image 	  |
+	| image-1.jpg |
+	| image-2.jpg |
+And I should not see image "image-3.jpg"
+And all the images should be medium-sized
 
 Scenario: Show gadgets in original size cover flow
+Given I am authenticated as 'pbanos'
+And the user "pbanos" has as gadgets
+	| Name 	|
+	| g1	|
+	| g2	|
+	| g3	|
+And the gadget "g1" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-1.jpg |
+And the gadget "g2" belonging to "pbanos" has the following images
+	| Image 	  |
+	| image-2.jpg |
+And the user "other" has as gadgets
+	| Name 	|
+	| g4	|
+	| g5	|
+	| g6	|
+And the gadget "g4" belonging to "other" has the following images
+	| Image 	  |
+	| image-3.jpg |
+And the gadget "g5" belonging to "other" has the following images
+	| Image 	  |
+	| image-3.jpg |
+When I go to the user page
+And I follow "Small cover flow"
+Then I should see the following images
+	| Image 	  |
+	| image-1.jpg |
+	| image-2.jpg |
+And I should not see image "image-3.jpg"
+And all the images should be original-sized
 
